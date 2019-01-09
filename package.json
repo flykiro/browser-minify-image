@@ -1,0 +1,79 @@
+{
+  "name": "browser-minify-image",
+  "version": "0.1.1",
+  "files": [
+    "src",
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "description": "browser-minify-image",
+  "main": "dist/index.js",
+  "typings": "./src/index.ts",
+  "repository": "git@github.com:flykiro/browser-minify-image.git",
+  "sideEffects": false,
+  "author": {
+    "name": "Kiro",
+    "email": "flykiro@gmail.com",
+    "url": "https://github.com/flykiro"
+  },
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "yarn || npm install",
+    "dev": "webpack-dev-server --config=build/webpack.dev.js",
+    "build": "webpack --config=build/webpack.build.js",
+    "release": "yarn build && yarn publish",
+    "commit": "git add . && git cz"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/runtime": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "commitizen": "^3.0.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false,
+          "useBuiltIns": false,
+          "targets": {
+            "browsers": [
+              "ie >= 9",
+              "ios >= 8",
+              "> 5%"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "helpers": false,
+          "regenerator": true
+        }
+      ]
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
